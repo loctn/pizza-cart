@@ -36,14 +36,18 @@ class PizzaCart extends Component {
     this.props.onRemovePizzaFromCart(index);
   }
 
-  computeTotalPrice(item) {
+  computeItemPrice(item) {
     return this.pizzaSizesMap[item.name].price + item.toppings.reduce((sum, toppingName) =>
       sum + (this.pizzaSizesMap[item.name].toppingPrices[toppingName] || 0)
     , 0);
   }
 
+  computeTotalPrice() {
+    return this.props.pizzaCart.reduce((sum, item) => sum + this.computeItemPrice(item), 0);
+  }
+
   render() {
-    const style = this.props.style;
+    const styles = this.props.styles;
     const pizzaSizes = this.props.pizzaSizes;
     const pizzaCart = this.props.pizzaCart;
 
@@ -56,7 +60,7 @@ class PizzaCart extends Component {
                 {item.name}
                 <a href="#" className={styles['remove']} onClick={event => this.handleRemoveClick(event, i)}> remove</a>
               </div>
-              <div>{this.computeTotalPrice(item).toFixed(2)}</div>
+              <div>{this.computeItemPrice(item).toFixed(2)}</div>
             </div>
             {!item.toppings.length &&
               <div className={styles['row-topping']}>plain</div>
@@ -67,8 +71,7 @@ class PizzaCart extends Component {
           </div>
         )}
         <div styleName="row-total">
-          <div>total</div>
-          <div>{pizzaCart.reduce((sum, item) => sum + this.computeTotalPrice(item), 0).toFixed(2)}</div>
+          <div>total</div><div>{this.computeTotalPrice().toFixed(2)}</div>
         </div>
       </div>
     );
