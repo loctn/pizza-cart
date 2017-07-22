@@ -1,0 +1,11 @@
+@import 'layout.css';
+@import 'colors.css';
+
+html, body {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  min-height: 100vh;
+  min-width: 100vw;
+}

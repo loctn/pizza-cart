@@ -1,0 +1,40 @@
+@import 'theme/layout.css';
+
+.component {
+  background-color: #fff;
+  margin: 0 auto 0 20px;
+  padding: 40px;
+}
+.item {
+  margin-bottom: 20px;
+}
+.row {
+  display: flex;
+}
+.row > div {
+  flex: 1;
+}
+.row > div:last-child {
+  text-align: right;
+}
+.row-name {
+  composes: row;
+}
+.row-name > div:first-child {
+  font-weight: var(--font-weight-bold);
+}
+.remove {
+  color: #88d;
+  font-weight: var(--font-weight-normal);
+  text-decoration: none;
+}
+.remove:hover {
+  color: blue;
+}
+.row-topping {
+  color: #888;
+}
+.row-total {
+  composes: row;
+  font-weight: var(--font-weight-bold);
+}

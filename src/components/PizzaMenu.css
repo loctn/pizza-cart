@@ -1,0 +1,12 @@
+@import 'theme/layout.css';
+
+.component {
+  background-color: #fff;
+  margin: 0 20px 0 auto;
+  padding: 40px;
+}
+.title {
+  font-weight: var(--font-weight-normal);
+  margin: 0 0 20px 0;
+  text-align: center;
+}

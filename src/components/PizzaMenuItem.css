@@ -1,0 +1,49 @@
+@import 'theme/layout.css';
+
+.component:not(:last-child) {
+  margin-bottom: 20px;
+}
+.row {
+  display: flex;
+  line-height: 150%;
+}
+.row > div {
+  flex: 1;
+}
+.row > div:last-child {
+  text-align: right;
+}
+.row-name {
+  composes: row;
+  font-weight: var(--font-weight-bold);
+}
+.add-to-cart {
+  color: #88d;
+  font-weight: var(--font-weight-normal);
+  text-decoration: none;
+}
+.add-to-cart:hover {
+  color: blue;
+}
+.checkmark:after {
+  content: ' ✔';
+}
+.pizza-dough {
+  composes: checkmark;
+}
+.pizza-dough:after {
+  color: #888;
+}
+.topping-selector {
+  color: inherit;
+  text-decoration: none;
+}
+.topping-selector:hover {
+  color: blue;
+}
+.topping--selected {
+  composes: checkmark;
+}
+.topping--selected:after {
+  color: #0d0;
+}
